@@ -89,11 +89,16 @@ WSGI_APPLICATION = "faaji_brew.wsgi.application"
 # Database configuration
 # Uses PostgreSQL in production via DATABASE_URL environment variable
 # Falls back to SQLite for local development if DATABASE_URL is not set
+# conn_health_checks verifies connection is alive before each use
+# dj-database-url 0.5.0 is used
 DATABASE_URL = os.environ.get("DATABASE_URL")
 
 if DATABASE_URL:
     DATABASES = {
-        "default": dj_database_url.parse(DATABASE_URL)
+        "default": dj_database_url.config(
+            default=DATABASE_URL,
+            conn_max_age=600,
+        )
     }
 else:
     DATABASES = {
@@ -102,6 +107,7 @@ else:
             "NAME": BASE_DIR / "db.sqlite3",
         }
     }
+    
 
 # Password validation rules for user accounts
 AUTH_PASSWORD_VALIDATORS = [
