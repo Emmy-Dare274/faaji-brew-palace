@@ -47,3 +47,58 @@ body {
     color: #C9A96E;
     text-decoration: none;
 }
+
+/* ============================================================
+   Auth pages — login, signup, logout
+   ============================================================ */
+
+/* Ensures the form fills the viewport height between nav and footer */
+
+.auth-section {
+    min-height: calc(100vh - 200px);
+}
+
+/* Card container for all auth forms */
+.auth-card {
+    border-radius: 12px;
+    background-color: #ffffff;
+}
+
+/* Page heading on auth pages uses the serif brand font */
+.auth-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #312A44;
+}
+
+/* In-form links (sign in / create account) use the gold accent */
+.auth-link {
+    color: #C9A96E;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-link:hover {
+    color: #312A44;
+    text-decoration: underline;
+}
+
+/* Icon displayed on the logout confirmation page */
+.auth-icon {
+    font-size: 3rem;
+    color: #C9A96E;
+    display: block;
+}
+
+/* Cancel button on logout page — styled to match palette */
+.btn-outline-secondary {
+    color: #88708E;
+    border-color: #88708E;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #88708E;
+    border-color: #88708E;
+    color: #ffffff;
+}

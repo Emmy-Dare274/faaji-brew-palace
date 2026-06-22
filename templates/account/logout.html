@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Logout confirmation page -->
+<section class="auth-section py-5" aria-labelledby="logout-heading">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-md-7 col-lg-5">
+
+                <div class="card auth-card shadow-sm border-0 text-center">
+                    <div class="card-body p-4 p-md-5">
+
+                        <!-- Font Awesome 6 sign-out icon -->
+                        <i class="fas fa-right-from-bracket auth-icon mb-3"
+                           aria-hidden="true"></i>
+
+                        <h1 id="logout-heading" class="auth-heading mb-2">
+                            Sign Out
+                        </h1>
+                        <p class="text-muted mb-4">
+                            Are you sure you want to sign out of your
+                            Faaji &amp; Brew Palace account?
+                        </p>
+
+                        <!-- POST is required for allauth logout (CSRF protection) -->
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    Yes, Sign Me Out
+                                </button>
+                                <a href="{% url 'about:index' %}"
+                                   class="btn btn-outline-secondary">
+                                    Cancel
+                                </a>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
