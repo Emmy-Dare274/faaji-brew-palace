@@ -13,7 +13,7 @@ urlpatterns = [
     path("", include("about.urls")),
 ]
 
-# Custom error handlers
+
 handler404 = "faaji_brew.views.handler404"
 handler500 = "faaji_brew.views.handler500"
 

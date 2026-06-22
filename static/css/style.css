@@ -1,0 +1,49 @@
+/* Global styles for Faaji & Brew Palace */
+
+body {
+    background-color: #F9F5FF;
+    font-family: 'Inter', sans-serif;
+}
+
+.main-bg {
+    background-color: #F9F5FF;
+}
+
+.dark-bg {
+    background-color: #312A44;
+}
+
+.brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #C9A96E;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #DAD4DF;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #C9A96E;
+}
+
+.btn-primary {
+    background-color: #88708E;
+    border-color: #88708E;
+}
+
+.btn-primary:hover {
+    background-color: #312A44;
+    border-color: #312A44;
+}
+
+.footer {
+    background-color: #312A44;
+}
+
+.footer a {
+    color: #C9A96E;
+    text-decoration: none;
+}

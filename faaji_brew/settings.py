@@ -28,6 +28,11 @@ ALLOWED_HOSTS = [
     ".herokuapp.com",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.codeinstitute-ide.net/",
+    "https://*.herokuapp.com",
+]
+
 # All installed apps including Django core, third party and local apps
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -91,12 +96,10 @@ WSGI_APPLICATION = "faaji_brew.wsgi.application"
 # Falls back to SQLite for local development if DATABASE_URL is not set
 # conn_health_checks verifies connection is alive before each use
 # dj-database-url 0.5.0 is used
-DATABASE_URL = os.environ.get("DATABASE_URL")
-
-if DATABASE_URL:
+if "DATABASE_URL" in os.environ:
     DATABASES = {
         "default": dj_database_url.config(
-            default=DATABASE_URL,
+            default=os.environ.get("DATABASE_URL"),
             conn_max_age=600,
         )
     }
