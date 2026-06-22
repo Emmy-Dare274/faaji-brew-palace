@@ -3,7 +3,7 @@ I created this project in order to pass the Code Institute Portfolio Project 4: 
 
 **A full-stack restaurant booking system built with Django.**
 
-A Portfolio Project 4 submission for the Level 5 Diploma in Full-Stack Software Development at Code Institute, Dublin.
+A Portfolio Project 4 submission for the Level 6 Diploma in Full-Stack Software Development at Code Institute, Dublin.
 
 ---
 
@@ -24,6 +24,39 @@ Site owners can manage all bookings via a secure admin panel.
 
 The following wireframes were created prior to development to define the page 
 structure, user flow, and visual design of the application.
+
+
+---
+
+## Technologies Used
+
+
+### Frontend
+- **HTML5** — semantic page structure
+- **CSS3** — custom styling and responsive layout
+- **JavaScript** — DOM manipulation, flash message dismissal, delete confirmation modal
+- **Bootstrap 5** — responsive grid, components and utility classes
+- **Crispy Forms** — Django form rendering styled with Bootstrap 5
+
+### Backend
+- **Python 3** — primary programming language
+- **Django 4** — full-stack web framework (MVT architecture)
+- **Django Allauth** — user registration, login and logout
+- **Gunicorn** — WSGI HTTP server for Heroku deployment
+- **Whitenoise** — static file serving in production
+
+### Database
+- **PostgreSQL** — production relational database (hosted on Neon)
+- **SQLite** — local development database
+- **dj-database-url** — database URL configuration for Django
+
+### Cloud and Deployment
+- **Cloudinary** — cloud media storage for uploaded images
+- **Heroku** — cloud platform for live deployment
+- **Git and GitHub** — version control and repository hosting
+
+---
+
 
 #### Home Page
 ![Home Page Wireframe](docs/wireframes/01_homepage.jpeg)
