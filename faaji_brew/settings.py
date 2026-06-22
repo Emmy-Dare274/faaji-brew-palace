@@ -19,7 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # Set to True only during local development, always False in production
-DEBUG = True
+DEBUG = False
 
 # Hosts allowed to serve this application
 ALLOWED_HOSTS = [
