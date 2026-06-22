@@ -40,3 +40,53 @@ class Restaurant(models.Model):
 
     def __str__(self):
         return self.name
+
+#  Table models
+class Table(models.Model):
+    """
+    Represents a physical table inside the restaurant.
+
+    capacity sets the hard limit on guest_count at booking time.
+    is_available is toggled by staff to mark a table out of service
+    without deleting its booking history.
+    """
+
+    LOCATION_INDOOR = "indoor"
+    LOCATION_OUTDOOR = "outdoor"
+    LOCATION_PRIVATE = "private"
+    LOCATION_BAR = "bar"
+
+    LOCATION_CHOICES = [
+        (LOCATION_INDOOR, "Indoor"),
+        (LOCATION_OUTDOOR, "Outdoor"),
+        (LOCATION_PRIVATE, "Private Dining Room"),
+        (LOCATION_BAR, "Bar Area"),
+    ]
+
+    table_number = models.PositiveIntegerField(
+        unique=True,
+        help_text="Unique number identifying this table on the floor plan",
+    )
+    capacity = models.PositiveIntegerField(
+        help_text="Maximum number of guests this table can seat",
+    )
+    location = models.CharField(
+        max_length=20,
+        choices=LOCATION_CHOICES,
+        default=LOCATION_INDOOR,
+    )
+    # Staff can take a table offline for maintenance without removing it
+    is_available = models.BooleanField(
+        default=True,
+        help_text="Uncheck to temporarily remove this table from the booking flow",
+    )
+
+    class Meta:
+        ordering = ["table_number"]
+
+    def __str__(self):
+        return (
+            f"Table {self.table_number} "
+            f"(seats {self.capacity}, {self.get_location_display()})"
+        )
+
