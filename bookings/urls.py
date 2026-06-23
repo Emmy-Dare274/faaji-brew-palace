@@ -1,11 +1,10 @@
-# URL patterns for the bookings app.
-# All booking related routes are defined here.
-
 from django.urls import path
 from . import views
 
 app_name = "bookings"
 
 urlpatterns = [
-    # Placeholder until build the booking views in Issue #9
+    path("make-booking/", views.make_booking, name="make_booking"),
+    path("my-bookings/", views.my_bookings, name="my_bookings"),
+    path("cancel/<int:booking_id>/", views.cancel_booking, name="cancel_booking"),
 ]

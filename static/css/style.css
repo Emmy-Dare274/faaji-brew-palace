@@ -663,3 +663,228 @@ footer.footer {
     color: #7A7087;
     margin-bottom: 0;
 }
+
+
+/* Booking form page */
+
+.booking-page {
+    background-color: #F9F5FF;
+    min-height: calc(100vh - 200px);
+}
+
+.booking-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 20px rgba(49, 42, 68, 0.09);
+}
+
+.booking-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1A1528;
+}
+
+.booking-subheading {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #7A7087;
+}
+
+.booking-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #312A44;
+    margin-bottom: 0.4rem;
+    display: block;
+}
+
+/* Read-only name field */
+.booking-readonly {
+    background-color: #F4F0FA;
+    color: #5a5265;
+    border-color: #D8D0E4;
+    cursor: default;
+}
+
+.booking-hint {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: #9E94AA;
+    margin-bottom: 0;
+}
+
+.booking-field-error {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    color: #c0392b;
+    margin-top: 0.3rem;
+}
+
+/* Confirm Reservation button */
+.btn-confirm-booking {
+    background-color: #88708E;
+    border-color: #88708E;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    padding: 0.8rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-confirm-booking:hover,
+.btn-confirm-booking:focus {
+    background-color: #312A44;
+    border-color: #312A44;
+    color: #ffffff;
+}
+
+
+/* My Bookings page */
+
+.my-bookings-page {
+    background-color: #F9F5FF;
+    min-height: calc(100vh - 200px);
+}
+
+.my-bookings-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1A1528;
+}
+
+/* + New Booking button */
+.btn-new-booking {
+    background-color: #312A44;
+    border-color: #312A44;
+    color: #C9A96E;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    padding: 0.6rem 1.4rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.btn-new-booking:hover {
+    background-color: #1A1528;
+    border-color: #1A1528;
+    color: #C9A96E;
+}
+
+/* Individual booking card */
+.booking-card-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid rgba(136, 112, 142, 0.18);
+    padding: 1.25rem 1.5rem;
+    transition: box-shadow 0.2s ease;
+}
+
+.booking-card-item:hover {
+    box-shadow: 0 4px 16px rgba(49, 42, 68, 0.1);
+}
+
+/* Cancelled bookings are visually dimmed */
+.booking-cancelled-item {
+    opacity: 0.55;
+}
+
+.booking-item-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1A1528;
+    margin-bottom: 0.4rem;
+}
+
+.booking-item-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: #7A7087;
+}
+
+/* Status badges */
+.status-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.status-confirmed {
+    background-color: #e6f4ea;
+    color: #2d7a44;
+}
+
+.status-pending {
+    background-color: #fef6e4;
+    color: #a07820;
+}
+
+.status-cancelled {
+    background-color: #fdecea;
+    color: #c0392b;
+}
+
+/* Edit booking button */
+.btn-edit-booking {
+    background-color: #C9A96E;
+    border-color: #C9A96E;
+    color: #312A44;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-edit-booking:hover {
+    background-color: #b8924d;
+    border-color: #b8924d;
+    color: #ffffff;
+}
+
+/* Cancel booking button */
+.btn-cancel-booking {
+    background-color: transparent;
+    border: 1px solid #c0392b;
+    color: #c0392b;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-cancel-booking:hover {
+    background-color: #c0392b;
+    color: #ffffff;
+}
+
+/* Empty state when no bookings exist */
+.booking-empty-icon {
+    font-size: 3.5rem;
+    color: #C9A96E;
+    display: block;
+}
+
+.booking-empty-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #312A44;
+}
+
+.booking-empty-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #7A7087;
+}

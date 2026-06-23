@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="my-bookings-page py-5" aria-labelledby="bookings-heading">
+    <div class="container">
+
+        <!-- Page header with new booking button -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 id="bookings-heading" class="my-bookings-heading mb-0">
+                My Reservations
+            </h1>
+            <a href="{% url 'bookings:make_booking' %}"
+               class="btn btn-new-booking">
+                + New Booking
+            </a>
+        </div>
+
+        {% if bookings %}
+
+        <div class="booking-list">
+            {% for booking in bookings %}
+
+            <!-- Each card is dimmed if the booking is cancelled -->
+            <article class="booking-card-item mb-3
+                {% if booking.status == 'cancelled' %}booking-cancelled-item{% endif %}"
+                aria-label="Booking for {{ booking.date }}">
+
+                <div class="d-flex justify-content-between align-items-start">
+
+                    <!-- Left: booking details -->
+                    <div class="booking-item-details">
+
+                        <!-- Title: meal period + guests + table location -->
+                        <h2 class="booking-item-title">
+                            &#127916;
+                            {% if booking.time_slot == "21:00" %}
+                                Late Dinner
+                            {% elif booking.time_slot >= "18:00" %}
+                                Dinner for {{ booking.guest_count }}
+                            {% else %}
+                                Lunch for {{ booking.guest_count }}
+                            {% endif %}
+                            &mdash; {{ booking.table.get_location_display }}
+                        </h2>
+
+                        <!-- Date, time and guests row -->
+                        <p class="booking-item-meta mb-2">
+                            <span>
+                                <i class="fas fa-calendar-days me-1"
+                                   aria-hidden="true"></i>
+                                {{ booking.date|date:"D, d M Y" }}
+                            </span>
+                            <span class="ms-3">
+                                <i class="fas fa-clock me-1" aria-hidden="true"></i>
+                                {{ booking.get_time_slot_display }}
+                            </span>
+                            <span class="ms-3">
+                                <i class="fas fa-users me-1" aria-hidden="true"></i>
+                                {{ booking.guest_count }}
+                                guest{{ booking.guest_count|pluralize }}
+                            </span>
+                        </p>
+
+                        <!-- Status badge -->
+                        {% if booking.status == 'confirmed' %}
+                        <span class="status-badge status-confirmed">
+                            <i class="fas fa-check me-1" aria-hidden="true"></i>
+                            Confirmed
+                        </span>
+                        {% elif booking.status == 'pending' %}
+                        <span class="status-badge status-pending">
+                            <i class="fas fa-hourglass-half me-1"
+                               aria-hidden="true"></i>
+                            Pending Confirmation
+                        </span>
+                        {% else %}
+                        <span class="status-badge status-cancelled">
+                            <i class="fas fa-xmark me-1" aria-hidden="true"></i>
+                            Cancelled
+                        </span>
+                        {% endif %}
+
+                    </div>
+
+                    <!-- Right: action buttons -->
+                    <div class="booking-item-actions d-flex gap-2 flex-shrink-0 ms-3">
+
+                        {% if booking.status != 'cancelled' %}
+                        <!-- Edit links to Issue #10 view -->
+                        <a href="/bookings/edit/{{ booking.id }}/"
+                           class="btn btn-edit-booking">
+                            Edit
+                        </a>
+
+                        <!-- Cancel posts to the cancel view -->
+                        <form method="post"
+                              action="{% url 'bookings:cancel_booking' booking.id %}"
+                              onsubmit="return confirm('Cancel this reservation?');">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-cancel-booking">
+                                Cancel
+                            </button>
+                        </form>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            {% endfor %}
+        </div>
+
+        {% else %}
+
+        <!-- Empty state when the user has no bookings yet -->
+        <div class="booking-empty text-center py-5">
+            <i class="fas fa-calendar-xmark booking-empty-icon mb-3"
+               aria-hidden="true"></i>
+            <h2 class="booking-empty-title">No reservations yet</h2>
+            <p class="booking-empty-text mb-4">
+                When you make a booking it will appear here.
+            </p>
+            <a href="{% url 'bookings:make_booking' %}"
+               class="btn btn-gold btn-lg">
+                Book a Table
+            </a>
+        </div>
+
+        {% endif %}
+
+    </div>
+</section>
+
+{% endblock %}

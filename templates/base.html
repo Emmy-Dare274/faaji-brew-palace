@@ -56,6 +56,10 @@
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/bookings/make-booking/' %}active{% endif %}"
+                            href="{% url 'bookings:make_booking' %}">Book a Table</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link {% if request.path == '/bookings/my-bookings/' %}active{% endif %}"
                             href="/bookings/my-bookings/">My Bookings</a>
                     </li>
@@ -64,6 +68,10 @@
                             href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            href="{% url 'account_login' %}">Book a Table</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == signup_url %}active{% endif %}"
                             href="{% url 'account_signup' %}">Register</a>
