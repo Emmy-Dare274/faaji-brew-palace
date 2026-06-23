@@ -13,7 +13,7 @@ Faaji & Brew Palace is a full-stack web application that allows users to browse 
 restaurant, register an account, and make, view, edit and cancel table reservations. 
 Site owners can manage all bookings via a secure admin panel.
 
-**Live Site:** [Coming Soon — deployed to Heroku]  
+**Live Site:** [Live View — deployed to Heroku](https://faaji-brew-palace-8fcdc34800ef.herokuapp.com/)  
 **GitHub Repository:** https://github.com/Emmy-Dare274/faaji-brew-palace
 
 
@@ -83,3 +83,27 @@ structure, user flow, and visual design of the application.
 ![404 Page Wireframe](docs/wireframes/08_404_page.jpeg)
 
 ---
+
+
+
+## Testing
+
+A full breakdown of manual test cases, automated test results, responsiveness
+testing, browser compatibility and bugs found and fixed is documented separately.
+
+<details>
+<summary>Click to view the Testing document</summary>
+
+The complete testing write-up is in [TESTING.md](TESTING.md).
+
+It covers:
+- 24 manual test cases across auth, CRUD, navigation and error pages
+- 19 automated Django tests covering models, forms and views (all passing)
+- Responsiveness tested at 375px, 768px and 1280px
+- Browser compatibility on Chrome, Edge and Firefox
+- 5 bugs found during development with their fixes documented
+
+</details>
+
+---
+
