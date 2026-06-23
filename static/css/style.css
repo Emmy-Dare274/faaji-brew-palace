@@ -538,3 +538,128 @@ footer.footer {
 .features-section .section-heading {
     color: #1A1528;
 }
+
+/* About page */
+
+.about-hero {
+    background-color: #1A1528;
+    min-height: 260px;
+}
+
+.about-hero-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.about-hero-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #B8B0C0;
+    max-width: 580px;
+}
+
+.about-story-section {
+    background-color: #F9F5FF;
+}
+
+.about-story-img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    object-fit: cover;
+    max-height: 420px;
+    box-shadow: 0 4px 20px rgba(49, 42, 68, 0.12);
+}
+
+/* Shown when no Cloudinary image has been uploaded yet */
+.about-img-placeholder {
+    width: 100%;
+    height: 360px;
+    border-radius: 12px;
+    background: linear-gradient(150deg, #252038 0%, #3E3558 100%);
+    box-shadow: 0 4px 20px rgba(49, 42, 68, 0.12);
+}
+
+.about-placeholder-icon {
+    font-size: 4rem;
+    color: #C9A96E;
+}
+
+.about-story-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: #1A1528;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+}
+
+.about-story-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.97rem;
+    line-height: 1.75;
+    color: #5a5265;
+    margin-bottom: 1rem;
+}
+
+/* Dark filled button with gold text — matches wireframe CTA style */
+.btn-about-cta {
+    background-color: #312A44;
+    border-color: #312A44;
+    color: #C9A96E;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    padding: 0.7rem 1.8rem;
+    border-radius: 4px;
+    display: inline-block;
+    transition: background-color 0.2s ease;
+}
+
+.btn-about-cta:hover,
+.btn-about-cta:focus {
+    background-color: #1A1528;
+    border-color: #1A1528;
+    color: #C9A96E;
+}
+
+.values-section {
+    background-color: #F9F5FF;
+    border-top: 1px solid rgba(136, 112, 142, 0.15);
+}
+
+.value-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(49, 42, 68, 0.07);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.value-card:hover {
+    box-shadow: 0 6px 20px rgba(49, 42, 68, 0.13);
+    transform: translateY(-3px);
+}
+
+.value-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+.value-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #312A44;
+    margin-bottom: 0.5rem;
+}
+
+.value-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.87rem;
+    line-height: 1.65;
+    color: #7A7087;
+    margin-bottom: 0;
+}

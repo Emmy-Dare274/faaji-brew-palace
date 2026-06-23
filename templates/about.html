@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Dark header matching the homepage hero colour -->
+<section class="about-hero d-flex align-items-center justify-content-center"
+         aria-labelledby="about-heading">
+    <div class="container text-center py-5">
+        <h1 id="about-heading" class="about-hero-heading">Our Story</h1>
+        <p class="about-hero-sub mx-auto">
+            Faaji &amp; Brew Palace was built on one belief: that a great meal
+            is a gathering, not just a transaction.
+        </p>
+    </div>
+</section>
+
+
+<!-- Story section: image left, text right -->
+<section class="about-story-section py-5" aria-labelledby="story-heading">
+    <div class="container py-3">
+        <div class="row align-items-center g-5">
+
+            <!-- Cloudinary image from the Restaurant model, with a fallback -->
+            <div class="col-12 col-md-6">
+                {% if restaurant and restaurant.image %}
+                <img src="{{ restaurant.image.url }}"
+                     onerror="this.style.display='none'"
+                     alt="Inside the Faaji and Brew Palace dining room"
+                     class="about-story-img">
+                {% else %}
+                <div class="about-img-placeholder d-flex align-items-center
+                            justify-content-center">
+                    <i class="fas fa-utensils about-placeholder-icon"
+                       aria-hidden="true"></i>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Story text and CTA -->
+            <div class="col-12 col-md-6">
+                <h2 id="story-heading" class="about-story-heading">
+                    From a Family Kitchen to a Palace of Flavour
+                </h2>
+                <p class="about-story-text">
+                    Founded in 2019 by Chef Adetokunbo Williams, Faaji &amp; Brew Palace
+                    started as a weekend supper club in Surulere. What began as
+                    sharing family recipes with thirty guests has grown into one of
+                    Lagos' most celebrated dining destinations.
+                </p>
+                <p class="about-story-text">
+                    The name "Faaji" — meaning joy and celebration in Yoruba —
+                    says everything about what we stand for. Every detail, from
+                    the hand-carved furniture to the bespoke spice blends, is
+                    designed to make you feel like you belong here.
+                </p>
+                {% if user.is_authenticated %}
+                <a href="/bookings/make-booking/" class="btn btn-about-cta mt-2">
+                    Reserve Your Place &rarr;
+                </a>
+                {% else %}
+                <a href="{% url 'account_signup' %}" class="btn btn-about-cta mt-2">
+                    Reserve Your Place &rarr;
+                </a>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Values grid: four cards -->
+<section class="values-section py-5" aria-labelledby="values-heading">
+    <div class="container py-3">
+
+        <p class="section-eyebrow text-center">What We Stand For</p>
+        <h2 id="values-heading" class="section-heading text-center mb-5">
+            Our Values
+        </h2>
+
+        <div class="row g-4">
+
+            <div class="col-6 col-md-3">
+                <div class="value-card text-center p-4 h-100">
+                    <div class="value-icon mb-3" aria-hidden="true">&#127758;</div>
+                    <h3 class="value-title">Heritage First</h3>
+                    <p class="value-text">
+                        Every recipe traces back to its roots. We never sacrifice
+                        authenticity for trend.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="value-card text-center p-4 h-100">
+                    <div class="value-icon mb-3" aria-hidden="true">&#129309;</div>
+                    <h3 class="value-title">Community</h3>
+                    <p class="value-text">
+                        We source 80% of our ingredients from local West African
+                        farms and suppliers.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="value-card text-center p-4 h-100">
+                    <div class="value-icon mb-3" aria-hidden="true">&#10024;</div>
+                    <h3 class="value-title">Excellence</h3>
+                    <p class="value-text">
+                        From the greeting at the door to the last sip of Chapman,
+                        every detail matters.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="value-card text-center p-4 h-100">
+                    <div class="value-icon mb-3" aria-hidden="true">&#127807;</div>
+                    <h3 class="value-title">Sustainability</h3>
+                    <p class="value-text">
+                        Zero food waste commitment. Seasonal menus.
+                        Compostable packaging.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

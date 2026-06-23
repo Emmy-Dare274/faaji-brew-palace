@@ -1,6 +1,7 @@
 {% load static %}
 
 {% url 'about:index' as home_url %}
+{% url 'about:about' as about_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -48,6 +49,10 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == home_url %}active{% endif %}"
                             href="{% url 'about:index' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == about_url %}active{% endif %}"
+                            href="{% url 'about:about' %}">About</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
