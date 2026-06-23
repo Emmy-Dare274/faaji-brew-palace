@@ -108,3 +108,82 @@ def cancel_booking(request, booking_id):
             messages.info(request, "This booking is already cancelled.")
 
     return redirect("bookings:my_bookings")
+
+
+@login_required
+def edit_booking(request, booking_id):
+    """
+    Load an existing booking into the form for editing.
+
+    Cancelled bookings cannot be edited. When changes are saved the
+    booking status resets to pending so staff can re-confirm the
+    updated reservation. The current booking is excluded from the
+    availability check so its own slot is not counted against it.
+    """
+    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+
+    if booking.status == Booking.STATUS_CANCELLED:
+        messages.error(request, "Cancelled bookings cannot be edited.")
+        return redirect("bookings:my_bookings")
+
+    if request.method == "POST":
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            chosen_date = form.cleaned_data["date"]
+            time_slot = form.cleaned_data["time_slot"]
+            guest_count = form.cleaned_data["guest_count"]
+            seating_pref = form.cleaned_data["seating_preference"]
+            special_requests = form.cleaned_data["special_requests"]
+
+            # Exclude this booking's own slot when checking availability
+            taken_ids = Booking.objects.filter(
+                date=chosen_date,
+                time_slot=time_slot,
+                status__in=[Booking.STATUS_PENDING, Booking.STATUS_CONFIRMED],
+            ).exclude(id=booking.id).values_list("table_id", flat=True)
+
+            available = Table.objects.filter(
+                is_available=True,
+                capacity__gte=guest_count,
+            ).exclude(id__in=taken_ids)
+
+            if seating_pref:
+                preferred = available.filter(location=seating_pref)
+                available = preferred if preferred.exists() else available
+
+            table = available.order_by("capacity").first()
+
+            if not table:
+                messages.error(
+                    request,
+                    "No tables are available for your updated date, time, and "
+                    "party size. Please try a different combination.",
+                )
+            else:
+                booking.table = table
+                booking.date = chosen_date
+                booking.time_slot = time_slot
+                booking.guest_count = guest_count
+                booking.special_requests = special_requests
+                booking.status = Booking.STATUS_PENDING
+                booking.save()
+                messages.success(
+                    request,
+                    "Your booking has been updated. We will reconfirm within 2 hours.",
+                )
+                return redirect("bookings:my_bookings")
+    else:
+        form = BookingForm(initial={
+            "date": booking.date,
+            "time_slot": booking.time_slot,
+            "guest_count": booking.guest_count,
+            "seating_preference": booking.table.location,
+            "special_requests": booking.special_requests,
+        })
+
+    return render(
+        request,
+        "bookings/edit_booking.html",
+        {"form": form, "booking": booking},
+    )
+    

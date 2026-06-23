@@ -89,9 +89,9 @@
 
                         {% if booking.status != 'cancelled' %}
                         <!-- Edit links to Issue #10 view -->
-                        <a href="/bookings/edit/{{ booking.id }}/"
-                           class="btn btn-edit-booking">
-                            Edit
+                        <a href="{% url 'bookings:edit_booking' booking.id %}"
+                            class="btn btn-edit-booking">
+                                Edit
                         </a>
 
                         <!-- Cancel posts to the cancel view -->

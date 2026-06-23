@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="booking-page py-5" aria-labelledby="edit-heading">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-9 col-lg-7">
+
+                <div class="booking-card p-4 p-md-5">
+
+                    <h1 id="edit-heading" class="booking-heading mb-1">
+                        Update Your Reservation
+                    </h1>
+                    <p class="booking-subheading mb-4">
+                        Change any details below. Your booking will return to
+                        pending and we will reconfirm within 2 hours.
+                    </p>
+
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+
+                        <!-- Read-only name field -->
+                        <div class="mb-4">
+                            <label class="booking-label">Booking For</label>
+                            <input type="text"
+                                   class="form-control booking-readonly"
+                                   value="{{ request.user.get_full_name|default:request.user.username }}"
+                                   readonly
+                                   aria-label="Booking name taken from your account">
+                            <p class="booking-hint mt-1">
+                                <i class="fas fa-circle-info me-1" aria-hidden="true"></i>
+                                Your name is taken from your account.
+                            </p>
+                        </div>
+
+                        <!-- Date and Time Slot -->
+                        <div class="row g-3 mb-3">
+                            <div class="col-12 col-sm-6">
+                                <label for="{{ form.date.id_for_label }}"
+                                       class="booking-label">
+                                    Date <span class="text-danger">*</span>
+                                </label>
+                                {{ form.date }}
+                                {% if form.date.errors %}
+                                <div class="booking-field-error">
+                                    {{ form.date.errors.0 }}
+                                </div>
+                                {% endif %}
+                                <p class="booking-hint mt-1">Up to 60 days in advance.</p>
+                            </div>
+
+                            <div class="col-12 col-sm-6">
+                                <label for="{{ form.time_slot.id_for_label }}"
+                                       class="booking-label">
+                                    Time Slot <span class="text-danger">*</span>
+                                </label>
+                                {{ form.time_slot }}
+                                {% if form.time_slot.errors %}
+                                <div class="booking-field-error">
+                                    {{ form.time_slot.errors.0 }}
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <!-- Party Size and Seating Preference -->
+                        <div class="row g-3 mb-3">
+                            <div class="col-12 col-sm-6">
+                                <label for="{{ form.guest_count.id_for_label }}"
+                                       class="booking-label">
+                                    Party Size <span class="text-danger">*</span>
+                                </label>
+                                {{ form.guest_count }}
+                                {% if form.guest_count.errors %}
+                                <div class="booking-field-error">
+                                    {{ form.guest_count.errors.0 }}
+                                </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-12 col-sm-6">
+                                <label for="{{ form.seating_preference.id_for_label }}"
+                                       class="booking-label">
+                                    Seating Preference
+                                </label>
+                                {{ form.seating_preference }}
+                            </div>
+                        </div>
+
+                        <!-- Special Requests -->
+                        <div class="mb-4">
+                            <label for="{{ form.special_requests.id_for_label }}"
+                                   class="booking-label">
+                                Special Requests
+                            </label>
+                            {{ form.special_requests }}
+                            <p class="booking-hint mt-1">
+                                We do our best to accommodate all requests but
+                                cannot guarantee them.
+                            </p>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit"
+                                    class="btn btn-confirm-booking btn-lg">
+                                Save Changes
+                            </button>
+                            <a href="{% url 'bookings:my_bookings' %}"
+                               class="btn btn-outline-secondary">
+                                Cancel Changes
+                            </a>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
