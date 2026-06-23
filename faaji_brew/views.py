@@ -13,3 +13,8 @@ def handler404(request, exception):
 def handler500(request):
     """Handle 500 Internal Server errors."""
     return render(request, "500.html", status=500)
+
+
+def handler403(request, exception):
+    """Handle 403 Forbidden errors raised by PermissionDenied."""
+    return render(request, "403.html", status=403)
