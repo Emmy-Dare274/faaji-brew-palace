@@ -113,12 +113,17 @@
             <!-- Feature 1: Cuisine -->
             <div class="col-12 col-md-4">
                 <div class="feature-card h-100">
-                    <div class="feature-card-img" aria-hidden="true">
+                    <div class="feature-card-img">
+                        <img src="{% static 'images/africacuisine.jpg' %}"
+                            alt="Richly plated West African egusi dish held in hands"
+                            class="feature-card-photo">
                         <span class="feature-tag">Cuisine</span>
-                        <i class="fas fa-bowl-rice feature-card-icon"></i>
                     </div>
                     <div class="feature-card-body p-4">
-                        <h3 class="feature-title">Authentic West African Cuisine</h3>
+                        <h3 class="feature-title">
+                            <i class="fas fa-bowl-rice feature-title-icon" aria-hidden="true"></i>
+                            Authentic West African Cuisine
+                        </h3>
                         <p class="feature-text">
                             Traditional recipes elevated with contemporary technique. From
                             slow-braised oxtail to suya-spiced lamb — every dish is rooted
@@ -131,12 +136,17 @@
             <!-- Feature 2: Live Music -->
             <div class="col-12 col-md-4">
                 <div class="feature-card h-100">
-                    <div class="feature-card-img" aria-hidden="true">
+                    <div class="feature-card-img">
+                        <img src="{% static 'images/livemusic.jpg' %}"
+                            alt="West African brass band performing live on stage in traditional attire"
+                            class="feature-card-photo">
                         <span class="feature-tag">Live Music</span>
-                        <i class="fas fa-music feature-card-icon"></i>
                     </div>
                     <div class="feature-card-body p-4">
-                        <h3 class="feature-title">Live Music Nights</h3>
+                        <h3 class="feature-title">
+                            <i class="fas fa-music feature-title-icon" aria-hidden="true"></i>
+                            Live Music Nights
+                        </h3>
                         <p class="feature-text">
                             Afrobeat, highlife and jazz performances every Thursday through
                             Sunday. The atmosphere is as curated as the menu.
@@ -148,12 +158,17 @@
             <!-- Feature 3: Private Dining -->
             <div class="col-12 col-md-4">
                 <div class="feature-card h-100">
-                    <div class="feature-card-img" aria-hidden="true">
+                    <div class="feature-card-img">
+                        <img src="{% static 'images/private-dining.jpg' %}"
+                            alt="Elegantly set private dining room with pendant lighting and long table"
+                            class="feature-card-photo">
                         <span class="feature-tag">Private Dining</span>
-                        <i class="fas fa-champagne-glasses feature-card-icon"></i>
                     </div>
                     <div class="feature-card-body p-4">
-                        <h3 class="feature-title">Private Dining Rooms</h3>
+                        <h3 class="feature-title">
+                            <i class="fas fa-champagne-glasses feature-title-icon" aria-hidden="true"></i>
+                            Private Dining Rooms
+                        </h3>
                         <p class="feature-text">
                             Host your celebration, corporate dinner or intimate gathering in
                             our candlelit private rooms. Exclusively yours for the evening.
@@ -179,7 +194,7 @@
             Chef's Selection
         </h2>
         <p class="section-subheading text-center mb-5">
-            Seasonal dishes crafted fresh each morning by Executive Chef Adaora Nwosu.
+            Seasonal dishes crafted fresh each morning by Executive Chef OluwaTosin DTechGuy.
         </p>
 
         <div class="row g-3">
@@ -239,11 +254,11 @@
             <!-- Special 4: Chapman Royale — icon card (put photo later; it is a drink) -->
             <div class="col-6 col-lg-3">
                 <article class="special-card h-100">
-                    <!-- Dark icon area matches the same height as the food photos -->
-                    <div class="special-img-wrapper special-drink-area
-                                d-flex align-items-center justify-content-center">
-                        <i class="fas fa-martini-glass-citrus special-drink-icon"
-                           aria-hidden="true"></i>
+                    <!-- Dark icon replaced: height as the food photos -->
+                    <div class="special-img-wrapper">
+                        <img src="{% static 'images/royale-drink.jpg' %}"
+                            alt="Chapman Royale cocktail with hibiscus, citrus slices and mint"
+                            class="special-img">
                     </div>
                     <div class="p-3">
                         <h3 class="special-title special-teal">Chapman Royale</h3>

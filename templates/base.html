@@ -24,6 +24,9 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}">
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
@@ -31,7 +34,10 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand brand" href="{% url 'about:index' %}">Faaji & Brew Palace</a>
+            <a class="navbar-brand brand" href="{% url 'about:index' %}">
+                <i class="fas fa-utensils brand-icon me-2" aria-hidden="true"></i>
+                <span class="brand-faaji">Faaji</span><span class="brand-sub"> &amp; Brew Palace</span>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarText" aria-controls="navbarText"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -96,23 +102,22 @@
 
     <!-- Footer -->
     <footer class="footer mt-auto py-3 dark-bg">
-        <p class="m-0 text-center text-white">
-            {% block copyright %}
-            Faaji & Brew Palace &copy; 2026
-            {% endblock copyright %}
-        </p>
-        <p class="m-0 text-center text-white">
-            Follow us:
-            <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
-                <i class="fab fa-instagram-square ms-3"></i>
-            </a>
-            <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
-                <i class="fab fa-facebook-square ms-3"></i>
-            </a>
-            <a href="https://www.twitter.com" target="_blank" rel="noopener" aria-label="Twitter">
-                <i class="fab fa-twitter-square ms-3"></i>
-            </a>
-        </p>
+        <div class="footer-inner text-center">
+            <p class="footer-brand-line mb-1">
+                <span class="footer-brand-name">Faaji &amp; Brew Palace</span>
+            </p>
+            <p class="footer-address mb-2">
+                12 Eko Boulevard, Victoria Island &nbsp;&middot;&nbsp;
+                <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+                &nbsp;|&nbsp;
+                <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+                &nbsp;|&nbsp;
+                <a href="https://www.twitter.com" target="_blank" rel="noopener" aria-label="Twitter">Twitter/X</a>
+            </p>
+            <p class="footer-copy mb-0">
+                {% block copyright %}&copy; 2026 Faaji &amp; Brew Palace &middot; All rights reserved.{% endblock %}
+            </p>
+        </div>
     </footer>
 
     <!-- Bootstrap JS -->
