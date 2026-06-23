@@ -3,18 +3,18 @@
 
 {% block content %}
 
-<!-- 500 Server Error page -->
+<!-- 403 Forbidden error page -->
 <section class="error-page py-5 text-center"
          aria-labelledby="error-heading">
     <div class="container py-5">
 
-        <p class="error-code-label">500</p>
+        <p class="error-code-label">403</p>
         <h1 id="error-heading" class="error-page-heading mb-3">
-            Something Went Wrong
+            Access Forbidden
         </h1>
         <p class="error-page-text mx-auto mb-5">
-            There was an unexpected problem on our end. Please try again
-            in a moment. If the issue continues, contact us at
+            You do not have permission to view or edit this booking.
+            If you believe this is a mistake, please contact us at
             reservations@faajibrew.com.
         </p>
         <a href="{% url 'about:index' %}" class="btn btn-gold btn-lg">

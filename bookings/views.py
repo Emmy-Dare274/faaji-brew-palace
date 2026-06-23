@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import BookingForm
@@ -97,7 +98,10 @@ def cancel_booking(request, booking_id):
     Mark a booking as cancelled. Only the owner can cancel their own booking.
     Accepts POST only to prevent accidental cancellation via a shared link.
     """
-    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+    # Same ownership check as edit_booking — returns 403 not 404
+    booking = get_object_or_404(Booking, id=booking_id)
+    if booking.user != request.user:
+        raise PermissionDenied
 
     if request.method == "POST":
         if booking.status != Booking.STATUS_CANCELLED:
@@ -120,7 +124,11 @@ def edit_booking(request, booking_id):
     updated reservation. The current booking is excluded from the
     availability check so its own slot is not counted against it.
     """
-    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+    # Fetch by id only, then check ownership separately so Django
+    # returns a proper 403 Forbidden rather than a silent 404
+    booking = get_object_or_404(Booking, id=booking_id)
+    if booking.user != request.user:
+        raise PermissionDenied
 
     if booking.status == Booking.STATUS_CANCELLED:
         messages.error(request, "Cancelled bookings cannot be edited.")

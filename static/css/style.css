@@ -888,3 +888,37 @@ footer.footer {
     font-size: 1rem;
     color: #7A7087;
 }
+
+/* Error pages (403, 404, 500) */
+
+.error-page {
+    background-color: #F9F5FF;
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+}
+
+/* Large muted number above the heading */
+.error-code-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(5rem, 15vw, 10rem);
+    font-weight: 700;
+    color: rgba(136, 112, 142, 0.20);
+    line-height: 1;
+    margin-bottom: 0;
+}
+
+.error-page-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #1A1528;
+}
+
+.error-page-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #7A7087;
+    max-width: 520px;
+}
