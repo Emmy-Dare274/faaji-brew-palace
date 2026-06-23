@@ -25,8 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
     // Cancel booking modal — runs only on the My Bookings page where
-    // the modal exists. The button that triggers the modal carries a
-    // data-cancel-url attribute; I write that URL into the hidden
+    // the modal exists. I write that URL into the hidden
     // form action so the right booking gets cancelled on confirm.
     const cancelModal = document.getElementById('cancelModal');
     if (cancelModal) {
