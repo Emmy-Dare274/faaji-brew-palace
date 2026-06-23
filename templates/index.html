@@ -1,18 +1,288 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-12 text-center">
-            <h1 class="display-4">Welcome to Faaji & Brew Palace</h1>
-            <p class="lead">West African Fine Dining</p>
+
+<!--
+     HERO SECTION
+     Restaurant interior photograph with a deep purple gradient -->
+<section class="hero-section d-flex align-items-center justify-content-center"
+         style="background-image:
+             linear-gradient(rgba(49, 42, 68, 0.60), rgba(26, 21, 40, 0.80)),
+             url('{% static 'images/hero.jpg' %}');"
+         aria-labelledby="hero-heading">
+
+    <div class="container text-center py-5">
+
+        <p class="hero-eyebrow">
+            ✦ West African Fine Dining &nbsp;&middot;&nbsp; Lagos &nbsp;&middot;&nbsp; London
+        </p>
+
+        <!-- "Faaji" in gold italic: the visual signature of the page -->
+        <h1 id="hero-heading" class="hero-heading">
+            Where Every Meal<br>
+            Is a <em class="hero-gold-word">Faaji</em>
+        </h1>
+
+        <p class="hero-subheading mx-auto mb-5">
+            Immerse yourself in the flavours, rhythm, and warmth of West Africa.
+            Reserve your table at Faaji &amp; Brew Palace — where dining is a celebration.
+        </p>
+
+        <div class="d-flex flex-wrap justify-content-center gap-3">
             {% if user.is_authenticated %}
-            <a href="/bookings/make-booking/" class="btn btn-primary btn-lg mt-3">Book a Table</a>
+            <a href="/bookings/make-booking/" class="btn btn-gold btn-lg">
+                Book Your Table
+            </a>
+            <a href="/bookings/my-bookings/" class="btn btn-hero-outline btn-lg">
+                My Reservations
+            </a>
             {% else %}
-            <a href="{% url 'account_signup' %}" class="btn btn-primary btn-lg mt-3">Register to Book</a>
-            <a href="{% url 'account_login' %}" class="btn btn-outline-primary btn-lg mt-3 ms-2">Login</a>
+            <a href="{% url 'account_signup' %}" class="btn btn-gold btn-lg">
+                Book Your Table
+            </a>
+            <a href="{% url 'about:index' %}" class="btn btn-hero-outline btn-lg">
+                Our Story &rarr;
+            </a>
             {% endif %}
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 
+     INFO BAND:
+     Medium purple strip with four contact details in a row. -->
+<div class="info-band py-3" role="complementary" aria-label="Restaurant contact information">
+    <div class="container">
+        <div class="row g-2 text-center">
+
+            <div class="col-6 col-md-3">
+                <span class="info-item">
+                    <i class="fas fa-location-dot me-2" aria-hidden="true"></i>
+                    <strong>12 Eko Boulevard,</strong> Victoria Island
+                </span>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <span class="info-item">
+                    <i class="fas fa-clock me-2" aria-hidden="true"></i>
+                    <strong>Open Daily</strong> 12:00 &ndash; 23:00
+                </span>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <span class="info-item">
+                    <i class="fas fa-phone me-2" aria-hidden="true"></i>
+                    +234 801 000 0000
+                </span>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <span class="info-item">
+                    <i class="fas fa-envelope me-2" aria-hidden="true"></i>
+                    reservations@faajibrew.com
+                </span>
+            </div>
+
         </div>
     </div>
 </div>
+
+
+<!-- 
+     FEATURES SECTION:
+     Lavender-white background with three dark feature cards.
+     Each card has a dark gradient header area with a label tag
+     and icon, then a white content body below. -->
+<section class="features-section py-5" aria-labelledby="features-heading">
+    <div class="container py-3">
+
+        <p class="section-eyebrow text-center">Why Dine With Us</p>
+        <h2 id="features-heading" class="section-heading text-center mb-2">
+            An Experience Beyond the Plate
+        </h2>
+        <p class="section-subheading text-center mb-5">
+            From live percussion evenings to private garden dinners, every visit to
+            Faaji &amp; Brew Palace tells a story worth remembering.
+        </p>
+
+        <div class="row g-4">
+
+            <!-- Feature 1: Cuisine -->
+            <div class="col-12 col-md-4">
+                <div class="feature-card h-100">
+                    <div class="feature-card-img" aria-hidden="true">
+                        <span class="feature-tag">Cuisine</span>
+                        <i class="fas fa-bowl-rice feature-card-icon"></i>
+                    </div>
+                    <div class="feature-card-body p-4">
+                        <h3 class="feature-title">Authentic West African Cuisine</h3>
+                        <p class="feature-text">
+                            Traditional recipes elevated with contemporary technique. From
+                            slow-braised oxtail to suya-spiced lamb — every dish is rooted
+                            in heritage.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2: Live Music -->
+            <div class="col-12 col-md-4">
+                <div class="feature-card h-100">
+                    <div class="feature-card-img" aria-hidden="true">
+                        <span class="feature-tag">Live Music</span>
+                        <i class="fas fa-music feature-card-icon"></i>
+                    </div>
+                    <div class="feature-card-body p-4">
+                        <h3 class="feature-title">Live Music Nights</h3>
+                        <p class="feature-text">
+                            Afrobeat, highlife and jazz performances every Thursday through
+                            Sunday. The atmosphere is as curated as the menu.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3: Private Dining -->
+            <div class="col-12 col-md-4">
+                <div class="feature-card h-100">
+                    <div class="feature-card-img" aria-hidden="true">
+                        <span class="feature-tag">Private Dining</span>
+                        <i class="fas fa-champagne-glasses feature-card-icon"></i>
+                    </div>
+                    <div class="feature-card-body p-4">
+                        <h3 class="feature-title">Private Dining Rooms</h3>
+                        <p class="feature-text">
+                            Host your celebration, corporate dinner or intimate gathering in
+                            our candlelit private rooms. Exclusively yours for the evening.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- 
+     CHEF'S SELECTION (TODAY'S SPECIALS)
+     Very dark section, plus card for the signature
+     drink. -->
+<section class="specials-section py-5" aria-labelledby="specials-heading">
+    <div class="container py-3">
+
+        <p class="section-eyebrow text-center specials-eyebrow">Today's Specials</p>
+        <h2 id="specials-heading" class="section-heading text-white text-center mb-2">
+            Chef's Selection
+        </h2>
+        <p class="section-subheading text-center mb-5">
+            Seasonal dishes crafted fresh each morning by Executive Chef Adaora Nwosu.
+        </p>
+
+        <div class="row g-3">
+
+            <!-- Special 1: Ofada Stew Risotto — jollof image -->
+            <div class="col-6 col-lg-3">
+                <article class="special-card h-100">
+                    <div class="special-img-wrapper">
+                        <img src="{% static 'images/special-jollof.jpg' %}"
+                             alt="Ofada Stew Risotto with smoked crayfish oil"
+                             class="special-img">
+                    </div>
+                    <div class="p-3">
+                        <h3 class="special-title special-gold">Ofada Stew Risotto</h3>
+                        <p class="special-description">
+                            Chef's fusion of Ofada sauce with arborio rice and smoked crayfish oil
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Special 2: Suya-Spiced Lamb — suya image -->
+            <div class="col-6 col-lg-3">
+                <article class="special-card h-100">
+                    <div class="special-img-wrapper">
+                        <img src="{% static 'images/special-suya.jpg' %}"
+                             alt="Suya-Spiced Lamb rack with groundnut crust"
+                             class="special-img">
+                    </div>
+                    <div class="p-3">
+                        <h3 class="special-title special-orange">Suya-Spiced Lamb</h3>
+                        <p class="special-description">
+                            12-hour slow-roasted rack with groundnut crust and zobo glaze
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Special 3: Puff Puff — puff puff image -->
+            <div class="col-6 col-lg-3">
+                <article class="special-card h-100">
+                    <div class="special-img-wrapper">
+                        <img src="{% static 'images/special-puffpuff.jpg' %}"
+                             alt="Puff Puff with palm wine glaze and coconut cream"
+                             class="special-img">
+                    </div>
+                    <div class="p-3">
+                        <h3 class="special-title special-gold">Puff Puff &amp; Palm Wine Glaze</h3>
+                        <p class="special-description">
+                            Golden dough balls glazed with palm wine reduction, served with
+                            coconut cream
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Special 4: Chapman Royale — icon card (put photo later; it is a drink) -->
+            <div class="col-6 col-lg-3">
+                <article class="special-card h-100">
+                    <!-- Dark icon area matches the same height as the food photos -->
+                    <div class="special-img-wrapper special-drink-area
+                                d-flex align-items-center justify-content-center">
+                        <i class="fas fa-martini-glass-citrus special-drink-icon"
+                           aria-hidden="true"></i>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="special-title special-teal">Chapman Royale</h3>
+                        <p class="special-description">
+                            House signature made with hibiscus, ginger beer and fresh citrus
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- 
+     CTA BAND
+     Dark gradient closing section to drive registrations. -->
+<section class="cta-section py-5 text-center" aria-labelledby="cta-heading">
+    <div class="container py-3">
+
+        <h2 id="cta-heading" class="cta-heading mb-3">
+            Ready to Reserve Your Table?
+        </h2>
+        <p class="cta-subtext mx-auto mb-4">
+            Booking takes under two minutes. Your celebration is waiting.
+        </p>
+
+        {% if user.is_authenticated %}
+        <a href="/bookings/make-booking/" class="btn btn-gold btn-lg">
+            Book a Table
+        </a>
+        {% else %}
+        <a href="{% url 'account_signup' %}" class="btn btn-gold btn-lg">
+            Create an Account &amp; Book
+        </a>
+        {% endif %}
+
+    </div>
+</section>
+
 {% endblock %}

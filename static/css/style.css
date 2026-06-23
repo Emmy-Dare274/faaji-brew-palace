@@ -102,3 +102,330 @@ body {
     border-color: #88708E;
     color: #ffffff;
 }
+/* 
+   Homepage — Hero Section
+*/
+
+/* Full-viewport hero. Background image + gradient overlay set
+   via inline style in index.html so {% static %} tag works.
+   background-color is the fallback while the image loads. */
+.hero-section {
+    min-height: 100vh;
+    background-color: #1A1528;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* All-caps eyebrow above the main heading */
+.hero-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #C9A96E;
+    margin-bottom: 1.25rem;
+}
+
+/* Fluid heading — scales from 2.8rem on mobile to 5rem on desktop */
+.hero-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+/* Gold italic word "Faaji" inside the h1 */
+.hero-gold-word {
+    color: #C9A96E;
+    font-style: italic;
+    font-weight: 700;
+}
+
+/* Supporting paragraph under the heading */
+.hero-subheading {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #DAD4DF;
+    max-width: 540px;
+}
+
+/* Filled gold CTA button — hero and CTA band */
+.btn-gold {
+    background-color: #C9A96E;
+    border-color: #C9A96E;
+    color: #312A44;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-gold:hover,
+.btn-gold:focus {
+    background-color: #b8924d;
+    border-color: #b8924d;
+    color: #ffffff;
+}
+
+/* Ghost "Our Story" button — readable on the dark photo background */
+.btn-hero-outline {
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.50);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    padding: 0.75rem 2rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-hero-outline:hover,
+.btn-hero-outline:focus {
+    background-color: rgba(255, 255, 255, 0.10);
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+
+/*
+   Homepage — Info Band
+*/
+
+.info-band {
+    background-color: #3E3558;
+}
+
+.info-item {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    color: #D4CEDF;
+}
+
+.info-item i {
+    color: #C9A96E;
+}
+
+
+/* 
+   Homepage — Features Section
+ */
+
+.features-section {
+    background-color: #F9F5FF;
+}
+
+/* All-caps eyebrow above section headings */
+.section-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #88708E;
+    margin-bottom: 0.5rem;
+}
+
+/* Section main heading */
+.section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #312A44;
+}
+
+/* Supporting text beneath the section heading */
+.section-subheading {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #7A7087;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Feature card outer wrapper */
+.feature-card {
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 2px 14px rgba(49, 42, 68, 0.09);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.feature-card:hover {
+    box-shadow: 0 8px 28px rgba(49, 42, 68, 0.16);
+    transform: translateY(-4px);
+}
+
+/* Dark header area of each feature card — CSS gradient*/
+.feature-card-img {
+    position: relative;
+    height: 175px;
+    background: linear-gradient(150deg, #252038 0%, #3E3558 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 1rem;
+}
+
+/* Small label tag top-left of each card header */
+.feature-tag {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background-color: rgba(201, 169, 110, 0.15);
+    color: #C9A96E;
+    border: 1px solid rgba(201, 169, 110, 0.40);
+    padding: 0.2rem 0.55rem;
+    border-radius: 3px;
+}
+
+/* Gold icon bottom-right of each card header */
+.feature-card-icon {
+    font-size: 1.9rem;
+    color: #C9A96E;
+}
+
+.feature-card-body {
+    background-color: #ffffff;
+}
+
+.feature-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #312A44;
+    margin-bottom: 0.6rem;
+}
+
+.feature-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #5a5265;
+    margin-bottom: 0;
+}
+
+
+/* 
+   Homepage — Chef's Selection (Specials)
+*/
+
+.specials-section {
+    background-color: #1A1528;
+}
+
+.specials-eyebrow {
+    color: #9E94AA;
+}
+
+.specials-section .section-heading {
+    color: #ffffff;
+}
+
+.specials-section .section-subheading {
+    color: #9E94AA;
+}
+
+/* Shared card wrapper for all four special items */
+.special-card {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #252038;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.special-card:hover {
+    border-color: rgba(201, 169, 110, 0.30);
+    transform: translateY(-3px);
+}
+
+/* Fixed-height image wrapper — keeps all cards the same height.
+   160px is compact enough to keep images from dominating the card. */
+.special-img-wrapper {
+    height: 160px;
+    overflow: hidden;
+}
+
+/* Food photograph inside the wrapper */
+.special-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.special-card:hover .special-img {
+    transform: scale(1.05);
+}
+
+/* Dark gradient area for the drink card (Chapman Royale) —
+   same 160px height as the food photo wrappers */
+.special-drink-area {
+    background: linear-gradient(135deg, #1A1528 0%, #2C2843 100%);
+}
+
+/* Large icon inside the drink area */
+.special-drink-icon {
+    font-size: 3.2rem;
+    color: #6DB5B5;
+}
+
+/* Dish name — base; colour variants applied by modifier */
+.special-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+}
+
+.special-gold   { color: #C9A96E; }
+.special-orange { color: #D4845A; }
+.special-teal   { color: #6DB5B5; }
+
+/* Short description beneath the dish name */
+.special-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: #9E94AA;
+    margin-bottom: 0;
+}
+
+
+/* 
+   Homepage — CTA Band
+*/
+
+.cta-section {
+    background: linear-gradient(135deg, #312A44 0%, #252038 100%);
+}
+
+.cta-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.cta-subtext {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #B8B0C0;
+    max-width: 480px;
+}
