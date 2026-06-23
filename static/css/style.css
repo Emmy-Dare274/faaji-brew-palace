@@ -945,3 +945,11 @@ footer.footer {
     color: #B8B0C0;
     padding-top: 0.5rem;
 }
+
+/* Ensure alert messages always have visible styling even if
+   allauth appends extra tag words alongside the Bootstrap class */
+.alert:not([class*="alert-"]) {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+}
