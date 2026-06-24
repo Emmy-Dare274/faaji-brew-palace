@@ -107,3 +107,76 @@ It covers:
 
 ---
 
+## Validation
+
+### Python — PEP8 (CI Python Linter)
+
+All Python files were checked using the [Code Institute Python Linter](https://pep8ci.herokuapp.com/) and returned zero errors.
+
+| File | Result |
+|---|---|
+| bookings/models.py | ![models](docs/validation/py/CI-PythonLinter-bookings-model-result.jpg) |
+| bookings/views.py | ![views](docs/validation/py/CI-PythonLinter-bookings-view-result.jpg) |
+| bookings/forms.py | ![forms](docs/validation/py/CI-PythonLinter-bookings-forms-result.jpg) |
+| bookings/admin.py | ![admin](docs/validation/py/CI-PythonLinter-bookings-admin-result.jpg) |
+| bookings/urls.py | ![urls](docs/validation/py/CI-PythonLinter-bookings-urls-result.jpg) |
+| bookings/tests/test_models.py | ![test models](docs/validation/py/CI-PythonLinter-bookings-tests-test_models-result.jpg) |
+| bookings/tests/test_forms.py | ![test forms](docs/validation/py/CI-PythonLinter-bookings-tests-test_forms-result.jpg) |
+| bookings/tests/test_views.py | ![test views](docs/validation/py/CI-PythonLinter-bookings-tests-test_views-result.jpg) |
+| faaji_brew/settings.py | ![settings](docs/validation/py/CI-PythonLinter-faaji_brew-settings-result.jpg) |
+| faaji_brew/urls.py | ![faaji urls](docs/validation/py/CI-PythonLinter-faaji_brew-urls-result.jpg) |
+| faaji_brew/views.py | ![faaji views](docs/validation/py/CI-PythonLinter-faaji_brew-views-result.jpg) |
+| about/views.py | ![about views](docs/validation/py/CI-PythonLinter-about-views-result.jpg) |
+| about/urls.py | ![about urls](docs/validation/py/CI-PythonLinter-about-urls-result.jpg) |
+
+---
+
+### HTML — W3C Validator
+
+All pages were validated using the [W3C Nu HTML Checker](https://validator.w3.org/nu/).
+
+| Page | Result |
+|---|---|
+| Homepage | ![home](docs/validation/w3c/W3Chtml-validation-home.jpg) |
+| About | ![about](docs/validation/w3c/W3Chtml-validation-about.jpg) |
+| Login | ![login](docs/validation/w3c/W3Chtml-validation-account-login.jpg) |
+| Logout | ![logout](docs/validation/w3c/W3Chtml-validation-account-logout.jpg) |
+| Sign Up | ![signup](docs/validation/w3c/W3Chtml-validation-account-signup.jpg) |
+| Book a Table | ![booking form](docs/validation/w3c/W3Chtml-validation-bookings-makebooking.jpg) |
+| My Bookings | ![my bookings](docs/validation/w3c/W3Chtml-validation-mybookings-bookings.jpg) |
+
+---
+
+### CSS — W3C Jigsaw Validator
+
+![CSS Validation](docs/validation/w3c/W3C-CSS-Validator-full-result.jpg)
+
+---
+
+### JavaScript — JSHint
+
+![JSHint Result](docs/validation/w3c/JSHint-JavaScript-Code-result.jpg)
+
+---
+
+### Lighthouse
+
+Lighthouse audits were run on the deployed Heroku site using Chrome DevTools.
+
+| Page | Result |
+|---|---|
+| Homepage | ![lighthouse home](docs/validation/lighthouse/lighthouse-home.png) |
+| About | ![lighthouse about](docs/validation/lighthouse/lighthouse-about.png) |
+| Book a Table | ![lighthouse booking](docs/validation/lighthouse/lighthouse-booking.png) |
+
+---
+
+### Responsive Design
+
+Tested across multiple screen sizes using Chrome DevTools Device Toolbar.
+
+![Desktop](docs/validation/responsive/Faaji-Brew-Palace-desktop-view.jpg)
+![iPad](docs/validation/responsive/Faaji-Brew-Palace-ipad-view.jpg)
+![iPhone](docs/validation/responsive/Faaji-Brew-Palace-iphones-view.jpg)
+![Other phones](docs/validation/responsive/Faaji-Brew-Palace-otherphones-view.jpg)
+
