@@ -65,7 +65,10 @@ class BookingViewsTest(TestCase):
         self.assertTemplateUsed(response, "bookings/make_booking.html")
 
     def test_valid_post_creates_booking_and_redirects_to_dashboard(self):
-        """Valid POST data should create one booking and redirect to My Bookings."""
+        """
+        Valid POST data should create one booking
+        and redirect to My Bookings.
+        """
         self.client.login(username="testuser", password="testpass123")
         count_before = Booking.objects.filter(user=self.user).count()
         response = self.client.post(
@@ -99,7 +102,10 @@ class BookingViewsTest(TestCase):
             self.assertEqual(booking.user, self.user)
 
     def test_cancel_booking_sets_status_to_cancelled(self):
-        """POSTing to cancel_booking should update the booking status to cancelled."""
+        """
+        POSTing to cancel_booking should update
+        the booking status to cancelled.
+        """
         self.client.login(username="testuser", password="testpass123")
         self.client.post(
             reverse("bookings:cancel_booking", args=[self.booking.id])
@@ -108,7 +114,10 @@ class BookingViewsTest(TestCase):
         self.assertEqual(self.booking.status, Booking.STATUS_CANCELLED)
 
     def test_other_user_editing_booking_returns_403(self):
-        """A user trying to edit someone else's booking should receive a 403."""
+        """
+        A user trying to edit someone else's booking
+        should receive a 403.
+        """
         self.client.login(username="otheruser", password="testpass123")
         response = self.client.get(
             reverse("bookings:edit_booking", args=[self.booking.id])
@@ -116,7 +125,10 @@ class BookingViewsTest(TestCase):
         self.assertEqual(response.status_code, 403)
 
     def test_other_user_cannot_cancel_another_users_booking(self):
-        """A cancel attempt on another user's booking should be blocked silently."""
+        """
+        A cancel attempt on another user's booking
+        should be blocked silently.
+        """
         self.client.login(username="otheruser", password="testpass123")
         self.client.post(
             reverse("bookings:cancel_booking", args=[self.booking.id])
@@ -126,11 +138,13 @@ class BookingViewsTest(TestCase):
         self.assertEqual(self.booking.status, Booking.STATUS_PENDING)
 
     def test_edit_booking_get_renders_prepopulated_form(self):
-        """GET to edit_booking should return the edit template for the booking owner."""
+        """
+        GET to edit_booking should return the edit template
+        for the booking owner.
+        """
         self.client.login(username="testuser", password="testpass123")
         response = self.client.get(
             reverse("bookings:edit_booking", args=[self.booking.id])
         )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "bookings/edit_booking.html")
-        

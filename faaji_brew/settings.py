@@ -7,6 +7,7 @@
 import os
 import dj_database_url
 from pathlib import Path
+from django.contrib.messages import constants as messages
 
 # Import env.py only if it exists, for local development only
 if os.path.isfile("env.py"):
@@ -15,7 +16,8 @@ if os.path.isfile("env.py"):
 # Root directory of the project
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Secret key is stored in env.py locally and in Heroku Config Vars in production
+# Secret key is stored in env.py locally and in Heroku Config Vars
+# in production
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # Set to True only during local development, always False in production
@@ -110,14 +112,34 @@ else:
             "NAME": BASE_DIR / "db.sqlite3",
         }
     }
-    
+
 
 # Password validation rules for user accounts
 AUTH_PASSWORD_VALIDATORS = [
-    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
+    {
+        "NAME": (
+            "django.contrib.auth.password_validation"
+            ".UserAttributeSimilarityValidator"
+        ),
+    },
+    {
+        "NAME": (
+            "django.contrib.auth.password_validation"
+            ".MinimumLengthValidator"
+        ),
+    },
+    {
+        "NAME": (
+            "django.contrib.auth.password_validation"
+            ".CommonPasswordValidator"
+        ),
+    },
+    {
+        "NAME": (
+            "django.contrib.auth.password_validation"
+            ".NumericPasswordValidator"
+        ),
+    },
 ]
 
 # Internationalisation settings
@@ -164,8 +186,6 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # Map Django message levels to Bootstrap 5 alert classes
-from django.contrib.messages import constants as messages
-
 MESSAGE_TAGS = {
     messages.DEBUG: "alert-info",
     messages.INFO: "alert-info",

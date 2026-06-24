@@ -2,9 +2,11 @@
 Models for the Faaji & Brew Palace booking system.
 
 Three models work together:
-  Restaurant  -- stores the restaurant's public profile (name, hours, contact info)
+  Restaurant  -- stores the restaurant's public profile
+                  (name, hours, contact info)
   Table       -- represents each physical table on the floor
-  Booking     -- records a user reservation tied to a table on a specific date and time
+  Booking     -- records a user reservation tied to a table
+                  on a specific date and time
 """
 
 from cloudinary.models import CloudinaryField
@@ -14,10 +16,13 @@ from django.db import models
 from django.utils import timezone
 
 #  Restaurant models
+
+
 class Restaurant(models.Model):
     """
     Stores the restaurant's public profile.
-    A single record is expected in production and is managed from the admin panel.
+    A single record is expected in production and is
+    managed from the admin panel.
     Staff can update the description, contact details, and hero image without
     touching any code.
     """
@@ -42,6 +47,8 @@ class Restaurant(models.Model):
         return self.name
 
 #  Table models
+
+
 class Table(models.Model):
     """
     Represents a physical table inside the restaurant.
@@ -78,7 +85,9 @@ class Table(models.Model):
     # Staff can take a table offline for maintenance without removing it
     is_available = models.BooleanField(
         default=True,
-        help_text="Uncheck to temporarily remove this table from the booking flow",
+        help_text=(
+            "Uncheck to temporarily remove this table from the booking flow"
+        ),
     )
 
     class Meta:
@@ -91,6 +100,8 @@ class Table(models.Model):
         )
 
 #  Bookings models
+
+
 class Booking(models.Model):
     """
     Records a table reservation made by a registered user.
@@ -143,7 +154,10 @@ class Booking(models.Model):
     special_requests = models.TextField(
         blank=True,
         default="",
-        help_text="Dietary requirements, celebrations, or any other notes for the kitchen",
+        help_text=(
+            "Dietary requirements, celebrations, or any other "
+            "notes for the kitchen"
+        ),
     )
     status = models.CharField(
         max_length=10,
@@ -177,7 +191,10 @@ class Booking(models.Model):
         # Reject bookings set in the past
         if self.date and self.date < today:
             raise ValidationError(
-                {"date": "Bookings cannot be made for a date that has already passed."}
+                {"date": (
+                    "Bookings cannot be made for a date "
+                    "that has already passed."
+                )}
             )
 
         # Guest count must not exceed the physical capacity of the table
@@ -186,9 +203,11 @@ class Booking(models.Model):
                 raise ValidationError(
                     {
                         "guest_count": (
-                            f"This table seats up to {self.table.capacity} guests. "
+                            f"This table seats up to "
+                            f"{self.table.capacity} guests. "
                             f"You requested {self.guest_count}. "
-                            f"Please choose a larger table or reduce your party size."
+                            "Please choose a larger table "
+                            "or reduce your party size."
                         )
                     }
                 )
@@ -196,7 +215,10 @@ class Booking(models.Model):
         # Block new bookings on a table that staff have taken offline
         if self.table_id and not self.table.is_available:
             raise ValidationError(
-                {"table": "This table is currently out of service. Please choose another."}
+                {"table": (
+                    "This table is currently out of service. "
+                    "Please choose another."
+                )}
             )
 
     def __str__(self):
@@ -204,4 +226,3 @@ class Booking(models.Model):
             f"{self.user.username} — Table {self.table.table_number} "
             f"on {self.date} at {self.get_time_slot_display()}"
         )
-        

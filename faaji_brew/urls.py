@@ -17,4 +17,3 @@ urlpatterns = [
 handler404 = "faaji_brew.views.handler404"
 handler500 = "faaji_brew.views.handler500"
 handler403 = "faaji_brew.views.handler403"
-

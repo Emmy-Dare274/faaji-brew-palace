@@ -50,7 +50,8 @@ def make_booking(request):
             if not table:
                 messages.error(
                     request,
-                    "No tables are available for your chosen date, time, and party "
+                    "No tables are available for your chosen "
+                    "date, time, and party "
                     "size. Please try a different combination.",
                 )
             else:
@@ -177,7 +178,8 @@ def edit_booking(request, booking_id):
                 booking.save()
                 messages.success(
                     request,
-                    "Your booking has been updated. We will reconfirm within 2 hours.",
+                    "Your booking has been updated. "
+                    "We will reconfirm within 2 hours.",
                 )
                 return redirect("bookings:my_bookings")
     else:
@@ -194,4 +196,3 @@ def edit_booking(request, booking_id):
         "bookings/edit_booking.html",
         {"form": form, "booking": booking},
     )
-    

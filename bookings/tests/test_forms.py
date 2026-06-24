@@ -40,7 +40,10 @@ class BookingFormValidationTest(TestCase):
         self.assertIn("date", form.errors)
 
     def test_missing_time_slot_is_rejected(self):
-        """Submitting the form without choosing a time slot should be rejected."""
+        """
+        Submitting the form without choosing a time slot
+        should be rejected.
+        """
         data = self.get_valid_data()
         data["time_slot"] = ""
         form = BookingForm(data=data)
@@ -48,9 +51,11 @@ class BookingFormValidationTest(TestCase):
         self.assertIn("time_slot", form.errors)
 
     def test_special_requests_field_is_optional(self):
-        """The form should pass validation when special requests is left empty."""
+        """
+        The form should pass validation when special requests
+        is left empty.
+        """
         data = self.get_valid_data()
         data["special_requests"] = ""
         form = BookingForm(data=data)
         self.assertTrue(form.is_valid(), msg=form.errors)
-        

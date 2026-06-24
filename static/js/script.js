@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 /*
   script.js — Faaji & Brew Palace custom JavaScript
 

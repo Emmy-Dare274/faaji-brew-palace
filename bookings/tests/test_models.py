@@ -24,12 +24,18 @@ class TableModelTest(TestCase):
         self.assertEqual(str(self.table), "Table 1 (seats 4, Indoor)")
 
     def test_table_is_available_by_default(self):
-        """A newly created table should be marked as available without setting it manually."""
+        """
+        A newly created table should be marked as available
+        without setting it manually.
+        """
         self.assertTrue(self.table.is_available)
 
 
 class BookingModelTest(TestCase):
-    """Tests for the Booking model's string output, defaults and constraints."""
+    """
+    Tests for the Booking model's string output,
+    defaults and constraints.
+    """
 
     def setUp(self):
         self.user = User.objects.create_user(
@@ -57,7 +63,10 @@ class BookingModelTest(TestCase):
         self.assertIn("1", result)
 
     def test_new_booking_defaults_to_pending_status(self):
-        """A booking created without an explicit status should default to pending."""
+        """
+        A booking created without an explicit status
+        should default to pending.
+        """
         new_booking = Booking.objects.create(
             user=self.user,
             table=self.table,
@@ -68,7 +77,10 @@ class BookingModelTest(TestCase):
         self.assertEqual(new_booking.status, Booking.STATUS_PENDING)
 
     def test_double_booking_same_slot_raises_integrity_error(self):
-        """The unique constraint should prevent two bookings for the same table, date and slot."""
+        """
+        The unique constraint should prevent two bookings
+        for the same table, date and slot.
+        """
         with self.assertRaises(IntegrityError):
             Booking.objects.create(
                 user=self.user,
@@ -77,4 +89,3 @@ class BookingModelTest(TestCase):
                 time_slot=self.booking.time_slot,
                 guest_count=2,
             )
-            

@@ -22,7 +22,8 @@ class RestaurantAdmin(admin.ModelAdmin):
 class TableAdmin(admin.ModelAdmin):
     """
     Admin view for managing tables.
-    is_available can be toggled directly from the list without opening each record.
+    is_available can be toggled directly from the list
+    without opening each record.
     """
 
     list_display = ("table_number", "capacity", "location", "is_available")
@@ -66,4 +67,3 @@ class BookingAdmin(admin.ModelAdmin):
         """Bulk action: cancel selected bookings."""
         count = queryset.update(status=Booking.STATUS_CANCELLED)
         self.message_user(request, f"{count} booking(s) cancelled.")
-        

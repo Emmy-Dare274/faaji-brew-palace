@@ -59,7 +59,9 @@ class BookingForm(forms.Form):
         widget=forms.Textarea(attrs={
             "class": "form-control",
             "rows": 4,
-            "placeholder": "Dietary requirements, anniversary setup, high chair needed...",
+            "placeholder": (
+                "Dietary requirements, anniversary setup, high chair needed..."
+            ),
         }),
     )
 
